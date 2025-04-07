@@ -7,24 +7,24 @@ using System.Xml.Linq;
 
 namespace EES
 {
-    public class ExtentionMethods
+    public static class ExtentionMethods
     {
-        public static bool IsOdd(int num)
+        public static bool IsOdd(this int num)
         {
             return num % 2 != 0;
         }
 
-        public static bool IsEven(int num)
+        public static bool IsEven(this int num)
         {
             return num % 2 == 0;
         }
 
-        public static string ToCapitalize(string word)
+        public static string ToCapitalize(this string word)
         {
             return char.ToUpper(word[0]) + word.Substring(1);
         }
 
-        public static int[] GetValueIndexes(char letter)
+        public static int[] GetValueIndexes(this char letter)
         {
             string word = "Abbasov";
             int[] indexes = new int[word.Length];
@@ -42,7 +42,7 @@ namespace EES
             return indexes;
         }
 
-        public static bool CustomContains(string word)
+        public static bool CustomContains(this string word)
         {
             string prg = "Software Development from CodeForFuture.";
             string empty = "";
