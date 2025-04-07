@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace EES
+namespace EES.Helper
 {
     public static class ExtentionMethods
     {
@@ -42,16 +42,23 @@ namespace EES
             return indexes;
         }
 
-        public static bool CustomContains(this string word)
+        public static bool CustomContains(this string prg, string word)
         {
-            string prg = "Software Development from CodeForFuture.";
             string empty = "";
             for (int i = 0; i < prg.Length; i++)
             {
-                if (prg[i] == ' ' && empty.ToUpper() == word.ToUpper())
-                    return true;
-                
-                empty += prg[i]; 
+                if (prg[i] == ' ')
+                {
+                    if (empty.ToUpper() == word.ToUpper())
+                        return true;
+                    else
+                    {
+                        empty = "";
+                        i++;
+                    }
+                }
+
+                empty += prg[i];
             }
             return false;
         }
